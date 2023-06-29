@@ -1,0 +1,29 @@
+body {
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+h1 {
+  color: pink;
+  font-size: 25px;
+  line-height: 20px;
+  margin-bottom: 0;
+}
+
+ul {
+  margin: 5px;
+  padding: 5px;
+}
+
+li {
+  list-style: none;
+  color: grey;
+  font-size: 18px;
+  font-weight: 100;
+  line-height: 30px;
+}
+.weather-app {
+  max-width: 750px;
+  margin: 30px auto;
+  padding: 20px;
+  border: 1px solid hsl(0, 0%, 83%);
+}
