@@ -1,3 +1,5 @@
+//Time & Date
+
 function formatDate(timestamp) {
   let currentDate = new Date(timestamp);
   let week = [
@@ -23,6 +25,7 @@ function formatDate(timestamp) {
   return `${currentDay}, ${currentHour}:${currentMinutes}`;
 }
 
+//Weather Display & Conditions
 function displayWeather(response) {
   let city = document.querySelector("#city");
   city.innerHTML = response.data.name;
@@ -44,9 +47,16 @@ function displayWeather(response) {
 
   let timeDate = document.querySelector("#time-date");
   timeDate.innerHTML = formatDate(response.data.dt * 1000);
+
+  let weatherIcon = document.querySelector("#weather-icon");
+  weatherIcon.setAttribute(
+    "src",
+    `https://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`
+  );
 }
 
 let apiKey = "bff072a9132941ace910fa356cbfe57c";
-let apiURL = `https://api.openweathermap.org/data/2.5/weather?q=Cape Town&appid=${apiKey}&units=metric`;
+let city = "Cape Town";
+let apiURL = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`;
 
 axios.get(apiURL).then(displayWeather);
