@@ -67,5 +67,7 @@ function handleSubmit(event) {
   searchCity(cityInput.value);
 }
 
+searchCity("Cape Town");
+
 let form = document.querySelector("#search-form");
 form.addEventListener("submit", handleSubmit);
