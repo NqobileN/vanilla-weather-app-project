@@ -55,8 +55,17 @@ function displayWeather(response) {
   );
 }
 
-let apiKey = "bff072a9132941ace910fa356cbfe57c";
-let city = "Cape Town";
-let apiURL = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`;
+function searchCity(city) {
+  let apiKey = "bff072a9132941ace910fa356cbfe57c";
+  let apiURL = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`;
+  axios.get(apiURL).then(displayWeather);
+}
 
-axios.get(apiURL).then(displayWeather);
+function handleSubmit(event) {
+  event.preventDefault();
+  let cityInput = document.querySelector("#searchCityInput");
+  searchCity(cityInput.value);
+}
+
+let form = document.querySelector("#search-form");
+form.addEventListener("submit", handleSubmit);
