@@ -20,10 +20,12 @@
     <link rel="stylesheet" href="src\vanilla-styling.css" />
     <title>Vanilla Weather App</title>
   </head>
+
   <body>
     <div class="container">
       <div class="weather-app-wrapper">
         <div class="weather-app">
+          <div class="overview">
           <form id="search-form" class="nb-3">
           <div class="row">
             <div class="col-9">
@@ -34,18 +36,24 @@
           </div>
         </div>
       </form>
+      <br/>
 
           <h1 id="city"></h1>
           <ul>
-            <li id="time-date"></li>
+            <li>Last updated: <span id="time-date"></span></li>
             <li id="description"></li>
           </ul>
+          </div>
 
           <div class="row">
             <div class="col-6">
-              <img src="" id="weather-icon"/>
-             <strong id="temperature">12</strong>&#x2103; | 10&#x2103;
+              <div class="d-flex weather-temperature">
+              <img src="" id="weather-icon" alt="Clear"/>
+              <div>
+             <strong id="temperature"></strong><span class="units"><a href="#" id="celsius-link" class="active" style="text-decoration:none">&#x2103;</a> |<a href="#" id="fahrenheit-link" style="text-decoration:none"> &#x2109;</a></span>
+             </div>
             </div>
+          </div>
 
           <div class="col-6">
             <ul>
