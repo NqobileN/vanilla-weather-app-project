@@ -53,6 +53,8 @@ function displayWeather(response) {
     "src",
     `https://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`
   );
+
+  celsiusTemp = response.data.main.temp;
 }
 
 function searchCity(city) {
@@ -71,3 +73,30 @@ searchCity("Cape Town");
 
 let form = document.querySelector("#search-form");
 form.addEventListener("submit", handleSubmit);
+
+//Temperature Conversion
+
+function showFahrenheitTemp(event) {
+  event.preventDefault();
+  let temperature = document.querySelector("#temperature");
+  celsiusConversion.classList.remove("active");
+  fahrenheitConversion.classList.add("active");
+  let fahrenheit = (celsiusTemp * 9) / 5 + 32;
+  temperature.innerHTML = Math.round(fahrenheit);
+}
+
+function showCelsiusTemp(event) {
+  event.preventDefault();
+  celsiusConversion.classList.add("active");
+  fahrenheitConversion.classList.remove("active");
+  let temperature = document.querySelector("#temperature");
+  temperature.innerHTML = Math.round(celsiusTemp);
+}
+
+let celsiusTemp = null;
+
+let fahrenheitConversion = document.querySelector("#fahrenheit-link");
+fahrenheitConversion.addEventListener("click", showFahrenheitTemp);
+
+let celsiusConversion = document.querySelector("#celsius-link");
+celsiusConversion.addEventListener("click", showCelsiusTemp);
